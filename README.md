@@ -3,7 +3,11 @@
 
 ---
 
+## How to run this Meraki API demo
 
+In [Webex Teams](https://www.webex.com/downloads.html), chat with **MerakiBot** at _meraki.bot@webex.bot_
+> Ask for an “**API demo**” and have some fun!
+![](images/Demo.png)
 
 ---
 
