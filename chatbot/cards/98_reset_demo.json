@@ -1,0 +1,41 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": {{{message}}},
+                    "wrap": true
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "reset_demo",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "reset_demo"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Reset my demo!",
+                    "id": "submit_98"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

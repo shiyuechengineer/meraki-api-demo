@@ -1,0 +1,102 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Please provide the following to setup a new site:",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 30,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Location name:",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Serial numbers:",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Address (or city, country):",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Device notes:",
+                                    "height": "stretch"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 70,
+                            "items": [
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "required",
+                                    "id": "txt_name"
+                                },
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "optional, as many as you'd like!",
+                                    "id": "txt_serials"
+                                },
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "optional, applicable only w/ serials",
+                                    "id": "txt_address"
+                                },
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "optional, applicable only w/ serials",
+                                    "id": "txt_notes"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "new_site",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "new_site"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Go!",
+                    "id": "submit_10"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

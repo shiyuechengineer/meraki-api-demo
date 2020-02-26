@@ -1,0 +1,152 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 70,
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "altText": "",
+                                    "url": "{{{logo_url}}}",
+                                    "width": "150px",
+                                    "horizontalAlignment": "Center",
+                                    "size": "Stretch",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "{{{cu_name}}}",
+                                    "wrap": true,
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder",
+                                    "id": "lbl_org_name",
+                                    "size": "Large"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 30,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "API Demo",
+                                    "size": "ExtraLarge",
+                                    "horizontalAlignment": "Left",
+                                    "weight": "Bolder"
+                                }
+                            ],
+                            "spacing": "None",
+                            "horizontalAlignment": "Center",
+                            "verticalContentAlignment": "Center"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": ""
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "No problem, we'll create a brand new account for you then.",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 50,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Do you want to optionally add some networks & devices at a few mock locations?"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 50,
+                            "items": [
+                                {
+                                    "type": "Input.ChoiceSet",
+                                    "placeholder": "(no networks for now)",
+                                    "choices": [
+                                        {
+                                            "title": "(no networks for now)",
+                                            "value": "0"
+                                        },
+                                        {
+                                            "title": "yes, create 1 site",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "title": "yes, create 2 sites",
+                                            "value": "2"
+                                        },
+                                        {
+                                            "title": "yes, create 3 sites",
+                                            "value": "3"
+                                        },
+                                        {
+                                            "title": "yes, create 4 sites",
+                                            "value": "4"
+                                        },
+                                        {
+                                            "title": "yes, create 5 sites",
+                                            "value": "5"
+                                        }
+                                    ],
+                                    "id": "site_count"
+                                }
+                            ]
+                        }
+                    ],
+                    "style": "good"
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "org_create",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "org_create"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Next >",
+                    "id": "submit_03"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

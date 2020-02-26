@@ -1,0 +1,85 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "What is the worst packet loss and latency that you can tolerate?",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 40,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Packet loss (in %):",
+                                    "spacing": "None",
+                                    "height": "stretch",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Latency (in ms):",
+                                    "height": "stretch",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 60,
+                            "items": [
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "a number between 0-100",
+                                    "id": "txt_loss"
+                                },
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "enter another number",
+                                    "id": "txt_latency"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "loss_latency",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "loss_latency"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Go!",
+                    "id": "submit_20"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

@@ -1,0 +1,201 @@
+<html>
+<head>
+        <title>Meraki Device Provisioning</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+  <style>
+  h1 { font-size: 18pt; color: #6FB73A; }
+  .networkfield {
+    width: 500px;
+    height: 40px;
+  }
+  .addressfield {
+    width: 500px;
+        height: 75px;
+  }
+  .serialfield {
+        width: 300px;
+        height: 30px;
+        float: left;
+        clear: none;
+  }
+  .namefield {
+        height: 30px;
+        width: 300px;
+        float: left;
+        clear: none;
+  }
+  .clear {
+        clear: both;
+  }
+  </style>
+</head>
+
+<body>
+<div id="tableWrapper">
+	<div id="sidebar">
+		<img src="https://n7.meraki.com/images/cisco-meraki-white.svg?1481053946" />
+		<div class="menuItem"><a href="/">Add Devices</a></div>
+		<div class="menuItem"><a href="/createnetwork">Create Network</a></div>
+		<div class="menuItem"><a href="/replace">Replace Devices</a></div>
+        <div class="menuItem"><a href="/ssid">Update SSID</a></div>
+        <div class="menuItem"><a href="/bulk">Bulk Change</a></div>
+	</div>
+        <div id="content">
+
+            <img src="/static/logo" width="150" />
+        <div id="title"><h1>Meraki Device Provisioning</h1></div>
+        <div id="instructions">	
+	<p>Instructions:</p>
+	<ul>
+		<li>Serial Numbers can be found on the box or on the bottom/back of the device</li>
+		<li>For best results with barcode scanner, set the scanner to add a "tab" suffix</li>
+		<li>The first Serial Number field is required. All others are optional</li>
+		<li>Serial Numbers must be in format "Q2XX-XXXX-XXXX"</li>
+	</ul>
+        </div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="networkfield">
+            {{ form.networkTextField.label }}: 
+            {{ form.networkTextField() }}
+            {% for error in form.networkTextField.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.templateField.label }}: 
+            {{ form.templateField() }}
+            {% for error in form.templateField.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="addressfield">
+            {{ form.addressField.label }}
+            {{ form.addressField() }}
+            {% for error in form.addressField.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.serialField1.label }}
+            {{ form.serialField1(size=20, maxlength = 14) }}
+            {% for error in form.serialField1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField1.label }}
+            {{ form.nameField1(size=25, maxlength = 25) }}
+            {% for error in form.nameField1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.serialField2.label }}
+            {{ form.serialField2(size=20, maxlength = 14) }}
+            {% for error in form.serialField2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField2.label }}
+            {{ form.nameField2(size=25, maxlength = 25) }}
+            {% for error in form.nameField2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.serialField3.label }}
+            {{ form.serialField3(size=20, maxlength = 14) }}
+            {% for error in form.serialField3.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField3.label }}
+            {{ form.nameField3(size=25, maxlength = 25) }}
+            {% for error in form.nameField3.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.serialField4.label }}
+            {{ form.serialField4(size=20, maxlength = 14) }}
+            {% for error in form.serialField4.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField4.label }}
+            {{ form.nameField4(size=25, maxlength = 25) }}
+            {% for error in form.nameField4.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.serialField5.label }}
+            {{ form.serialField5(size=20, maxlength = 14) }}
+            {% for error in form.serialField5.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField5.label }}
+            {{ form.nameField5(size=25, maxlength = 25) }}
+            {% for error in form.nameField5.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+		<div class="serialfield">
+            {{ form.serialField6.label }}
+            {{ form.serialField6(size=20, maxlength = 14) }}
+            {% for error in form.serialField6.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField6.label }}
+            {{ form.nameField6(size=25, maxlength = 25) }}
+            {% for error in form.nameField6.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+		<div class="serialfield">
+            {{ form.serialField7.label }}
+            {{ form.serialField7(size=20, maxlength = 14) }}
+            {% for error in form.serialField7.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField7.label }}
+            {{ form.nameField7(size=25, maxlength = 25) }}
+            {% for error in form.nameField7.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+		<div class="serialfield">
+            {{ form.serialField8.label }}
+            {{ form.serialField8(size=20, maxlength = 14) }}
+            {% for error in form.serialField8.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.nameField8.label }}
+            {{ form.nameField8(size=25, maxlength = 25) }}
+            {% for error in form.nameField8.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="submitfield">{{ form.submitField() }}</div>
+    </form>
+  </div>
+    <div class="clear"></div>
+</div>
+</body>
+</html>

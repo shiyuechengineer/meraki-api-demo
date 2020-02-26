@@ -1,0 +1,271 @@
+<html>
+<head>
+	<title>Meraki Bulk Change Tool</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<link rel="shortcut icon" href="/static/favicon.ico" />
+  <style>
+  h1 { font-size: 18pt; color: #6FB73A; }
+  .networkfield {
+    width: 500px;
+    height: 40px;
+  }
+  .addressfield {
+    width: 500px;
+        height: 75px;
+  }
+  .serialfield {
+        width: 175px;
+        height: 30px;
+        float: left;
+        clear: none;
+  }
+  .checkboxfield {
+        float: left;
+        clear: none;
+  }
+  .namefield {
+        height: 30px;
+        width: 200px;
+        float: left;
+        clear: none;
+  }
+  .clear {
+        clear: both;
+  }
+  .indent {
+  		padding-left: 50px;
+  		float: left;
+        clear: none;
+  }
+  .ipslabel {
+  		float: left;
+        clear: none;
+        width: 75px;
+  }
+  .ipsselect {
+  		float: left;
+        clear: none;
+        width: 100px;
+  }
+  .hubnum {
+  		float: left;
+        clear: none;
+        width: 30px;
+  }
+  .hubselect {
+  		float: left;
+        clear: none;
+        width: 150px;
+  }
+  .hubdef {
+  		float: left;
+        clear: none;
+        width: 100px;
+  }
+  .hubdef input {
+    	padding: 0px;
+  }
+  .checkboxfield input {
+  		padding: 0px;
+  		height: auto;
+  }
+
+  #content_filtering_url_list {
+  		width: 287px;
+  		margin: 0px;
+  		height: 128px;
+  }
+
+  </style>
+</head>
+
+<body>
+<div id="tableWrapper">
+	<div id="sidebar">
+		<img src="https://n7.meraki.com/images/cisco-meraki-white.svg?1481053946" />
+		<div class="menuItem"><a href="/">Add Devices</a></div>
+		<div class="menuItem"><a href="/createnetwork">Create Network</a></div>
+		<div class="menuItem"><a href="/replace">Replace Devices</a></div>
+        <div class="menuItem"><a href="/ssid">Update SSID</a></div>
+        <div class="menuItem"><a href="/bulk">Bulk Change</a></div>
+	</div>
+	<div id="content">
+
+        <img src="/static/logo" width="150" />
+        <div id="title"><h1>Meraki Bulk Change Tool</h1></div>
+	<div id="instructions">
+	<p>Instructions:</p>
+	<ul>
+		<li>Make sure to select the correct Tag</li>
+		<li>All fields are optional</li>
+		<li>Any fields left unchecked will remain unchanged</li>
+	</ul>
+    </div>
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="networkfield">
+            <span style="color: red;"><strong>{{ form.tagField.label }}</strong></span>
+            {{ form.tagField() }}
+            {% for error in form.tagField.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        
+        <div class="checkboxfield">
+            {{ form.setips() }}
+            {{ form.setips.label }}
+        </div>
+        <div class="clear"></div>
+        <div class="indent">
+        	<div class="ipslabel">
+        	    {{ form.ipsmode.label }}
+        	</div>
+        	<div class="ipsselect">
+        	    {{ form.ipsmode() }}
+        	    {% for error in form.ipsmode.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        	<div class="clear"></div>
+        	<div class="ipslabel">
+        	    {{ form.ipsrules.label }}
+        	</div>
+        	<div class="ipsselect">
+        	    {{ form.ipsrules() }}
+        	    {% for error in form.tagField.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        </div>
+		<div class="clear"></div>
+		<hr>
+        <div class="checkboxfield">
+            {{ form.set_content_filtering_url() }}
+            {{ form.set_content_filtering_url.label }}
+        </div>
+        <div class="clear"></div>
+        <div id="content_filtering_url" class="indent">
+        	<div class="ipslabel">
+        	    {{ form.content_filtering_url_section.label }}
+        	</div>
+        	<div class="ipsselect">
+        	    {{ form.content_filtering_url_section() }}
+        	    {% for error in form.content_filtering_url_section.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        	<div class="clear"></div>
+			<div class="ipslabel">
+        	    {{ form.content_filtering_url_action.label }}
+        	</div>
+        	<div class="ipsselect">
+        	    {{ form.content_filtering_url_action() }}
+        	    {% for error in form.content_filtering_url_action.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        	<div class="clear"></div>
+
+        	<div>
+        	    {{ form.content_filtering_url_list.label }}
+        	</div>
+        	<div id="" class="clear">
+        	    {{ form.content_filtering_url_list() }}
+        	    {% for error in form.tagField.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+				<p>(Enter one pattern per line)</p>
+        	</div>
+        </div>
+        <div class="clear"></div>
+		<hr>
+        <div class="checkboxfield">
+            {{ form.setvpn() }}
+            {{ form.setvpn.label }}
+        </div>
+        <div class="clear">Note: Choosing a site that is not a Hub will result in no changes being made.<br />
+        Not all sites in this list are currently configured as hubs.<br />
+        This tool will not modify the Local Networks included or excluded from VPN<br /><br /></div>
+        <div class="indent">
+        	<div class="hubnum">#</div><div class="hubselect">Hub</div><div class="hubdef">Default Route</div><div class="clear"></div>
+        	<div class="hubnum">
+        	    {{ form.hub1.label }}
+        	</div>
+        	<div class="hubselect">
+        	    {{ form.hub1() }}
+        	    {% for error in form.hub1.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        	<div class="hubdef">
+        	    {{ form.default1() }}
+        	</div>
+        	<div class="clear"></div>
+        	
+        	<div class="hubnum">
+        	    {{ form.hub2.label }}
+        	</div>
+        	<div class="hubselect">
+        	    {{ form.hub2() }}
+        	    {% for error in form.hub2.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        	<div class="hubdef">
+        	    {{ form.default2() }}
+        	</div>
+        	<div class="clear"></div>
+        	
+        	<div class="hubnum">
+        	    {{ form.hub3.label }}
+        	</div>
+        	<div class="hubselect">
+        	    {{ form.hub3() }}
+        	    {% for error in form.hub3.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        	<div class="hubdef">
+        	    {{ form.default3() }}
+        	</div>
+        	<div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+		<hr>
+        
+		<div class="checkboxfield">
+            {{ form.setpsk() }}
+            {{ form.setpsk.label }}
+        </div>
+        <div class="clear"></div>
+        <div class="indent">
+        	<div class="serialfield">
+        	    {{ form.ssidnum.label }}
+        	    {{ form.ssidnum() }}
+        	    {% for error in form.ssidnum.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+
+        	<div class="clear"></div>
+        	<div class="serialfield">
+        	    {{ form.ssidpsk.label }}
+        	    {{ form.ssidpsk() }}
+        	    {% for error in form.ssidpsk.errors %}
+        	    <span style="color: red;">[{{ error }}]</span>
+        	    {% endfor %}
+        	</div>
+        	<div class="clear"></div>
+        </div>
+        
+        <div class="clear"></div><br /><br />
+        <div class="submitfield">{{ form.submitField() }}</div>
+    </form>
+    </div>
+    <div class="clear"></div>
+</div>
+
+</body>
+</html>

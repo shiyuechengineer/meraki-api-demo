@@ -1,0 +1,74 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "How many days back into the past do you want to look for connected clients in the org?",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 40,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Number of days:",
+                                    "spacing": "None",
+                                    "height": "stretch",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 60,
+                            "items": [
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "a number between 1-31",
+                                    "id": "txt_days"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "get_clients",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "get_clients"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Go!",
+                    "id": "submit_30"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

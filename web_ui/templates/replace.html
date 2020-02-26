@@ -1,0 +1,115 @@
+<html>
+<head>
+        <title>Meraki Device Provisioning</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+  <style>
+  h1 { font-size: 18pt; color: #6FB73A; }
+  .networkfield {
+    width: 500px;
+    height: 40px;
+  }
+  .addressfield {
+    width: 500px;
+        height: 75px;
+  }
+  .serialfield {
+        width: 300px;
+        height: 30px;
+        float: left;
+        clear: none;
+  }
+  .namefield {
+        height: 30px;
+        width: 300px;
+        float: left;
+        clear: none;
+  }
+  .clear {
+        clear: both;
+  }
+  </style>
+</head>
+
+<body>
+<div id="tableWrapper">
+	<div id="sidebar">
+		<img src="https://n7.meraki.com/images/cisco-meraki-white.svg?1481053946" />
+		<div class="menuItem"><a href="/">Add Devices</a></div>
+		<div class="menuItem"><a href="/createnetwork">Create Network</a></div>
+		<div class="menuItem"><a href="/replace">Replace Devices</a></div>
+        <div class="menuItem"><a href="/ssid">Update SSID</a></div>
+        <div class="menuItem"><a href="/bulk">Bulk Change</a></div>
+	</div>
+        <div id="content">
+
+            <img src="/static/logo" width="150" />
+        <div id="title"><h1>Meraki Device Provisioning</h1></div>
+        <div id="instructions">	
+	<p>Instructions:</p>
+	<ul>
+		<li>Make sure to select the correct Network</li>
+		<li>Serial Numbers can be found on the box or on the bottom/back of the device</li>
+		<li>For best results with barcode scanner, set the scanner to add a "tab" suffix</li>
+		<li>Serial Numbers must be in format "Q2XX-XXXX-XXXX"</li>
+	</ul>
+        </div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="networkfield">
+            {{ form.networkField.label }}: 
+            {{ form.networkField() }}
+            {% for error in form.networkField.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.oldMX.label }}
+            {{ form.oldMX(size=20, maxlength = 14) }}
+            {% for error in form.oldMX.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.newMX.label }}
+            {{ form.newMX(size=25, maxlength = 25) }}
+            {% for error in form.newMX.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.oldSwitch.label }}
+            {{ form.oldSwitch(size=20, maxlength = 14) }}
+            {% for error in form.oldSwitch.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.newSwitch.label }}
+            {{ form.newSwitch(size=25, maxlength = 25) }}
+            {% for error in form.newSwitch.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="serialfield">
+            {{ form.oldAP.label }}
+            {{ form.oldAP(size=20, maxlength = 14) }}
+            {% for error in form.oldAP.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div><div class="namefield">
+            {{ form.newAP.label }}
+            {{ form.newAP(size=25, maxlength = 25) }}
+            {% for error in form.newAP.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+        <div class="submitfield">{{ form.submitField() }}</div>
+    </form>
+  </div>
+    <div class="clear"></div>
+</div>
+</body>
+</html>

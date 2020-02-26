@@ -1,0 +1,131 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 70,
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "altText": "",
+                                    "url": "{{{logo_url}}}",
+                                    "width": "150px",
+                                    "horizontalAlignment": "Center",
+                                    "size": "Stretch",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "{{{cu_name}}}",
+                                    "wrap": true,
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder",
+                                    "id": "lbl_org_name",
+                                    "size": "Large"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 30,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "API Demo",
+                                    "size": "ExtraLarge",
+                                    "horizontalAlignment": "Left",
+                                    "weight": "Bolder"
+                                }
+                            ],
+                            "spacing": "None",
+                            "horizontalAlignment": "Center",
+                            "verticalContentAlignment": "Center"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": ""
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Enter the **API key**, which you can generate in the Meraki dashboard by going to your email login on the upper-right _> My profile > Generate new API key_.",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 25,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "API key:",
+                                    "spacing": "None",
+                                    "height": "stretch",
+                                    "size": "Large",
+                                    "weight": "Bolder"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 75,
+                            "items": [
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "",
+                                    "id": "api_key",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "style": "good"
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "input_key",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "input_key"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Next >",
+                    "id": "submit_01"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

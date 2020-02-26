@@ -1,0 +1,102 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 70,
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "altText": "",
+                                    "url": "{{{logo_url}}}",
+                                    "width": "150px",
+                                    "horizontalAlignment": "Center",
+                                    "size": "Stretch",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "{{{cu_name}}}",
+                                    "wrap": true,
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder",
+                                    "id": "lbl_org_name",
+                                    "size": "Large"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 30,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "API Demo",
+                                    "size": "ExtraLarge",
+                                    "horizontalAlignment": "Left",
+                                    "weight": "Bolder"
+                                }
+                            ],
+                            "spacing": "None",
+                            "horizontalAlignment": "Center",
+                            "verticalContentAlignment": "Center"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": ""
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Please select from the following organizations:",
+                    "wrap": true
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "placeholder": "",
+            "choices": {{{list_of_orgs}}},
+            "separator": true,
+            "id": "org_choice"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "org_select",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "org_select"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Next >",
+                    "id": "submit_02"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

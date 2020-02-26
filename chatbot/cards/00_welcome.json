@@ -1,0 +1,136 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 70,
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "altText": "",
+                                    "url": "{{{logo_url}}}",
+                                    "width": "150px",
+                                    "horizontalAlignment": "Center",
+                                    "size": "Stretch",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "{{{cu_name}}}",
+                                    "wrap": true,
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder",
+                                    "id": "lbl_org_name",
+                                    "size": "Large"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 30,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "API Demo",
+                                    "size": "ExtraLarge",
+                                    "horizontalAlignment": "Left",
+                                    "weight": "Bolder"
+                                }
+                            ],
+                            "spacing": "None",
+                            "horizontalAlignment": "Center",
+                            "verticalContentAlignment": "Center"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": ""
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Welcome to your Meraki API demo, **{{{user_name}}}**! Please run this demo in the latest version of [Webex Teams](https://www.webex.com/downloads.html). Let's help you set up the environment with some basic info first:",
+                    "wrap": true
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 70,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Do you have an existing Meraki dashboard login and organization to use?",
+                                    "wrap": true,
+                                    "size": "Medium"
+                                }
+                            ],
+                            "verticalContentAlignment": "Center"
+                        },
+                        {
+                            "type": "Column",
+                            "width": 30,
+                            "items": [
+                                {
+                                    "type": "Input.ChoiceSet",
+                                    "placeholder": "",
+                                    "choices": [
+                                        {
+                                            "title": "Yes",
+                                            "value": "yes"
+                                        },
+                                        {
+                                            "title": "No",
+                                            "value": "no"
+                                        }
+                                    ],
+                                    "style": "expanded",
+                                    "id": "existing_org"
+                                }
+                            ]
+                        }
+                    ],
+                    "style": "good"
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "welcome",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "welcome"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Next >",
+                    "id": "submit_00"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

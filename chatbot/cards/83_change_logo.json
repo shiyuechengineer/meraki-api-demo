@@ -1,0 +1,74 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "What is the URL for your new demo logo? (Needs to end in either \".jpg\" or \".png\" for Webex Teams to load it correctly.)",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 15,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "URL:",
+                                    "spacing": "None",
+                                    "height": "stretch",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 85,
+                            "items": [
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "URL to new logo image",
+                                    "id": "txt_logo"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "change_logo",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "change_logo"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Go!",
+                    "id": "submit_83"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

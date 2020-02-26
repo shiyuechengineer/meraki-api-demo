@@ -1,0 +1,85 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Connect this Webex Teams room to receive webhook alerts from the following networks that have the **API_demo** tag:",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": {{{networks}}},
+                    "wrap": true
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 80,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Confirm you are OK with adding a new HTTP server and replacing current alert configs?",
+                                    "height": "stretch",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 20,
+                            "items": [
+                                {
+                                    "type": "Input.Toggle",
+                                    "title": "Yes",
+                                    "value": "false",
+                                    "wrap": true,
+                                    "id": "opt_webhooks"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "webhook_alerts",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "webhook_alerts"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Go!",
+                    "id": "submit_84"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

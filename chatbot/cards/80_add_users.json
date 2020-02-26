@@ -1,0 +1,88 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Paste in the e-mail addresses of users you want to add to this Webex Teams room, and optionally to add as dashboard admins. You can include as many e-mail addresses below as you'd like!",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 25,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "E-mail addresses:",
+                                    "spacing": "None",
+                                    "height": "stretch",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Dashboard org access?",
+                                    "height": "stretch",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 75,
+                            "items": [
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "emails of users to add to this Webex Teams space",
+                                    "id": "txt_emails",
+                                    "isMultiline": true
+                                },
+                                {
+                                    "type": "Input.Toggle",
+                                    "title": "optionally add as Meraki admins too",
+                                    "value": "false",
+                                    "wrap": false,
+                                    "id": "opt_admin"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "add_users",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "add_users"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Go!",
+                    "id": "submit_80"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

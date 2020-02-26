@@ -1,0 +1,83 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Updating the wireless password? Just provide the following to change the pre-shared key of the **first SSID** in those networks with the _API_demo_ tag.",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": ""
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 50,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "New Wi-Fi password (PSK):",
+                                    "spacing": "None",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Send a text/SMS to notify:",
+                                    "height": "stretch"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 50,
+                            "items": [
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "",
+                                    "id": "txt_password"
+                                },
+                                {
+                                    "type": "Input.Text",
+                                    "placeholder": "optional US number(s)",
+                                    "id": "txt_phones"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "wifi_psk",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "wifi_psk"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Go!",
+                    "id": "submit_11"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ]
+}

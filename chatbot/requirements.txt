@@ -1,0 +1,12 @@
+google-cloud-firestore
+google-cloud-storage
+google-cloud-vision
+matplotlib
+meraki==0.80.3
+opencv-python
+pandas
+plivo
+pystache
+pytz
+requests
+requests_toolbelt

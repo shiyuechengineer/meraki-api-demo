@@ -1,0 +1,310 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "fallbackText": "To run this API demo, view this message in a supported [Webex Teams](https://www.webex.com/downloads.html) client.",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 70,
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "altText": "",
+                                    "url": "{{{logo_url}}}",
+                                    "width": "150px",
+                                    "horizontalAlignment": "Center",
+                                    "size": "Stretch",
+                                    "height": "stretch"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "{{{cu_name}}}",
+                                    "wrap": true,
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder",
+                                    "id": "lbl_org_name",
+                                    "size": "Large"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 30,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "API Demo",
+                                    "size": "ExtraLarge",
+                                    "horizontalAlignment": "Left",
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "ActionSet",
+                                    "actions": [
+                                        {
+                                            "type": "Action.OpenUrl",
+                                            "title": "Dashboard 🖥",
+                                            "id": "btn_dashboard",
+                                            "url": "{{{org_url}}}"
+                                        }
+                                    ],
+                                    "horizontalAlignment": "Right"
+                                }
+                            ],
+                            "spacing": "None",
+                            "horizontalAlignment": "Center",
+                            "verticalContentAlignment": "Center"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Configure",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "ActionSet",
+                                    "actions": [
+                                        {
+                                            "type": "Action.Submit",
+                                            "title": "New Site 🏘",
+                                            "data": {
+                                                "button": "new_site"
+                                            }
+                                        }
+                                    ],
+                                    "horizontalAlignment": "Center"
+                                },
+                                {
+                                    "type": "ActionSet",
+                                    "actions": [
+                                        {
+                                            "type": "Action.Submit",
+                                            "title": "Wi-Fi PSK 🔐",
+                                            "data": {
+                                                "button": "wifi_psk"
+                                            }
+                                        }
+                                    ],
+                                    "horizontalAlignment": "Center"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Monitor",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "ActionSet",
+                                    "actions": [
+                                        {
+                                            "type": "Action.Submit",
+                                            "title": "ISP Health 🚑",
+                                            "data": {
+                                                "button": "isp_health"
+                                            }
+                                        }
+                                    ],
+                                    "horizontalAlignment": "Center"
+                                },
+                                {
+                                    "type": "ActionSet",
+                                    "actions": [
+                                        {
+                                            "type": "Action.Submit",
+                                            "title": "Devices 🚦",
+                                            "data": {
+                                                "button": "get_devices"
+                                            }
+                                        }
+                                    ],
+                                    "horizontalAlignment": "Center"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Retrieve",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Bolder"
+                                },
+                                {
+                                    "type": "ActionSet",
+                                    "actions": [
+                                        {
+                                            "type": "Action.Submit",
+                                            "title": "Snapshots 📸",
+                                            "data": {
+                                                "button": "get_snapshots"
+                                            }
+                                        }
+                                    ],
+                                    "horizontalAlignment": "Center"
+                                },
+                                {
+                                    "type": "ActionSet",
+                                    "actions": [
+                                        {
+                                            "type": "Action.Submit",
+                                            "title": "Clients 📊",
+                                            "data": {
+                                                "button": "get_clients"
+                                            }
+                                        }
+                                    ],
+                                    "horizontalAlignment": "Center"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "style": "emphasis",
+            "bleed": true
+        },
+        {
+            "type": "TextBlock",
+            "text": ""
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myCardIndex",
+            "value": "main_menu",
+            "isVisible": false,
+            "choices": [
+                {
+                    "title": "This hidden choice ensures that myCardIndex is returned with every Action.Submit attachmentAction",
+                    "value": "main_menu"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.ShowCard",
+            "title": "Manage Demo",
+            "card": {
+                "type": "AdaptiveCard",
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "body": [
+                    {
+                        "type": "Container",
+                        "items": [
+                            {
+                                "type": "Input.ChoiceSet",
+                                "id": "manageDemoIndex",
+                                "choices": [
+                                    {
+                                        "title": "Add other users 👨‍👩‍👧‍👦",
+                                        "value": "add_users"
+                                    },
+                                    {
+                                        "title": "Configure webhooks \uD83D\uDEA8️",
+                                        "value": "configure_webhooks"
+                                    },
+                                    {
+                                        "title": "Deploy/undeploy web app 🕸",
+                                        "value": "web_app"
+                                    },
+                                    {
+                                        "title": "Replace banner logo ♻️",
+                                        "value": "change_logo"
+                                    },
+                                    {
+                                        "title": "Shut down demo ❌",
+                                        "value": "shut_down"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ActionSet",
+                                "actions": [
+                                    {
+                                        "type": "Action.Submit",
+                                        "title": "Next >",
+                                        "data": {
+                                            "button": "manage_demo"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Action.ShowCard",
+            "title": "API Resources",
+            "card": {
+                "type": "AdaptiveCard",
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "text": "* Meraki [Developer Hub](https://developer.cisco.com/meraki/) ☸️\n* View the \uD83D\uDC19 [source code](https://github.com/shiyuechengineer/meraki-api-demo) for this demo\n* Device provisioning [web app](https://github.com/nathanwiens/meraki-add-device-webapp) \uD83D\uDCF2\n* Build your own bot with the ⛷ [Adventure API lab](http://cs.co/adventure)!\n* Meraki's \uD83D\uDC0D Python [library](https://github.com/meraki/dashboard-api-python) for dashboard API",
+                        "wrap": true
+                    },
+                    {
+                        "type": "Container",
+                        "items": [
+                            {
+                                "type": "TextBlock",
+                                "text": "Do you have questions, comments, or suggestions❓\n\nWe'd love to get your input to further improve the Meraki API demo experience❗️",
+                                "wrap": true
+                            },
+                            {
+                                "type": "Input.Text",
+                                "id": "feedback",
+                                "isMultiline": true,
+                                "placeholder": "Make a wish!"
+                            },
+                            {
+                                "type": "ActionSet",
+                                "actions": [
+                                    {
+                                        "type": "Action.Submit",
+                                        "title": "Submit",
+                                        "data": {
+                                            "button": "send_feedback"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

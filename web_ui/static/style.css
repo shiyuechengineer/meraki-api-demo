@@ -1,0 +1,169 @@
+@font-face{
+	font-family:cisco-sans;
+	src:url('http://meraki.cisco.com/assets/fonts/cisco-sans/CiscoSansLight.otf');
+}
+
+@font-face{
+	font-family:cisco-sans;
+	src:url('http://meraki.cisco.com/assets/fonts/cisco-sans/CiscoSansBold.otf');
+	font-weight:bold;
+}
+
+body {
+	//background-color: #3D3E40;
+	background: url(/static/sidebar.png) repeat-y;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1 {
+	font-size: 1.50rem;
+}
+
+body,div,img {
+	//font-family: cisco-sans;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, td {
+  border: 1px solid black;
+}
+
+th {
+	padding: 5px 10px 5px 5px;
+}
+
+td {
+	padding: 5px;
+}
+
+#submitfield {
+	line-height: 1.90476em;
+    height: 28px;
+    padding: 0px 4px;
+    color: #555;
+    border: 1px solid #ccc;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+}
+
+#queryfield {
+	width: 300px;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+a:active {
+    text-decoration: underline;
+    color: white;
+}
+
+#tableWrapper {
+}
+
+#sidebar {
+	width: 185px;
+	padding: 15px;
+	float: left;
+	height: 100%;
+	position: fixed;
+}
+
+#sidebar img {
+	width: 130px;
+	height: 30px;
+}
+
+#content {
+	background-color: #FFF;
+	font: 0.8125em Arial,sans-serif;
+	padding: 15px;
+	overflow: auto;
+	float: left;
+	min-width: 500px;
+	position: relative;
+	top: 0px;
+	left: 215px;
+}
+
+#footer {
+	background-color: #FFF;
+	font: 0.6125em Arial,sans-serif;
+	padding: 15px;
+	overflow: auto;
+	float: left;
+	min-width: 500px;
+	position: relative;
+	top: 0px;
+	left: 215px;
+}
+
+.label {
+	float: left;
+	width: 200px;
+	padding-bottom: 15px;
+}
+
+.setting {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.menuItem {
+	font-size: 18px;
+    font-family: Arial,sans-serif;
+    color: #D7D7D9;
+    font-weight: 300;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    letter-spacing: 0.05em;
+	margin-top: 50px;
+}
+
+.button {
+	display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 4px 10px;
+    font-size: 13px;
+    line-height: 1.42857;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #333;
+    background-color: #f6f6f6;
+    border-color: #ccc;
+}
+
