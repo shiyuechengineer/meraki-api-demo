@@ -80,7 +80,7 @@ Find “Cloud Functions” from the left-hand menu (pin it for easier access to 
 
 Using the GCloud SDK, you can deploy the function by running:
 ```
-gcloud functions deploy chatbot --region=us-east4 --source=[PATH_TO_DASHBOARD_SOURCE]
+gcloud functions deploy dashboard --region=us-east4 --source=[PATH_TO_DASHBOARD_SOURCE]
 ```
 
 2. The web app offers an alternative UI to the chatbot, and source within [web_ui](web_ui) directory contains the Docker container that is deployed on-demand by Google Cloud Run.
