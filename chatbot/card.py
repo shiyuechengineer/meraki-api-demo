@@ -332,7 +332,20 @@ def card_main_menu(session, headers, payload, data, inputs, db):
         if button == 'new_site':
             display_card(session, headers, payload, db, '10_new_site.json')
         elif button == 'wifi_psk':
-            display_card(session, headers, payload, db, '11_wifi_psk.json')
+            api_key = demo['api_key']
+            org_id = demo['org_id']
+            m = meraki.DashboardAPI(api_key, output_log=False)
+            networks = m.networks.getOrganizationNetworks(org_id)
+            tagged_networks = [n for n in networks if n['tags'] and 'API_demo' in n['tags']]
+            if tagged_networks:
+                networks = ''
+                for n in tagged_networks:
+                    networks += f'{n["name"]}\n'
+                display_card(session, headers, payload, db, '11_wifi_psk.json',
+                             template={'networks': networks})
+            else:
+                post_message(session, headers, payload,
+                             'To update the wireless password, tag at least one network with "API_demo" (case-sensitive) first!')
         elif button == 'isp_health':
             display_card(session, headers, payload, db, '20_loss_latency.json')
         elif button == 'get_devices':

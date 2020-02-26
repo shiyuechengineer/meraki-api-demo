@@ -9,7 +9,17 @@
             "items": [
                 {
                     "type": "TextBlock",
-                    "text": "Updating the wireless password? Just provide the following to change the pre-shared key of the **first SSID** in those networks with the _API_demo_ tag.",
+                    "text": "Updating the wireless password? Just provide the following to change the pre-shared key of the **first SSID** in these networks with the _API_demo_ tag:",
+                    "wrap": true
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": {{{networks}}},
                     "wrap": true
                 },
                 {
