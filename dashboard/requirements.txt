@@ -1,7 +1,7 @@
 google-cloud-firestore
 google-cloud-storage
 google-cloud-vision
-meraki==0.80.3
+meraki==1.40.1
 opencv-python
 pystache
 pytz
